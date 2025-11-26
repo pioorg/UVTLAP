@@ -17,7 +17,7 @@
 package org.przybyl.uvtlap.structuredConcurrency;
 
 
-import static org.przybyl.uvtlap.structuredConcurrency.FakeWorker.sneakySleep;
+import static org.przybyl.uvtlap.utils.FakeWorker.sneakySleep;
 
 import java.time.Duration;
 import java.time.Instant;

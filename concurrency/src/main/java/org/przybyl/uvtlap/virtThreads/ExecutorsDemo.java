@@ -16,6 +16,9 @@
  */
 package org.przybyl.uvtlap.virtThreads;
 
+
+import org.przybyl.uvtlap.utils.FakeWorker;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.ExecutorService;
@@ -33,7 +36,7 @@ public class ExecutorsDemo {
         try (var e = createExecutor()) {
             IntStream.rangeClosed(0, tasks).forEach(i -> {
                 e.submit(() -> {
-                    VirtThreadsLimits.sneakySleep(blockedFor);
+                    FakeWorker.sneakySleep(blockedFor.toMillis());
                     if (i % 5_000 == 0) {
                         System.out.printf("Current count %d%n", i);
                     }

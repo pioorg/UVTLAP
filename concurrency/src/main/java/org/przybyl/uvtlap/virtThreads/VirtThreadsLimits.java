@@ -16,18 +16,21 @@
  */
 package org.przybyl.uvtlap.virtThreads;
 
+
+import org.przybyl.uvtlap.utils.FakeWorker;
+
 import java.time.Duration;
 import java.time.Instant;
 
 public class VirtThreadsLimits {
 
-    private final static Duration EMULATE_WORK_FOR = Duration.ofSeconds(8);
+    private final static Duration EMULATE_WORK_FOR = Duration.ofSeconds(20);
 
     public static void main(String[] args) throws InterruptedException {
         Instant start = Instant.now();
         Instant previous = start;
 
-        int maxThreadNo = 10_000;
+        int maxThreadNo = 1_000;
         Thread[] threads = new Thread[maxThreadNo + 1];
         for (int i = 0; i <= maxThreadNo; i++) {
             threads[i] = createThread(i);
@@ -60,28 +63,9 @@ public class VirtThreadsLimits {
     }
 
     static void blockingOperation(int task) {
-//            System.out.printf("Task: %6d, thread %s%n", task, Thread.currentThread());
-        sneakySleep(EMULATE_WORK_FOR);
-//            UncertaintyPrincipleOfVirtualThreads.hardWork(EMULATE_WORK_FOR.toMillis());
-
-    }
-
-
-    public static void sneakySleep(long d) {
-        try {
-            Thread.sleep(d);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-//            UncertaintyPrincipleOfVirtualThreads.hardWork(d);
-    }
-
-    public static void sneakySleep(Duration d) {
-        try {
-            Thread.sleep(d);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        System.out.printf("Task: %6d, thread %s%n", task, Thread.currentThread());
+        FakeWorker.sneakySleep(EMULATE_WORK_FOR.toMillis());
+//        FakeWorker.hardWork(EMULATE_WORK_FOR.toMillis());
     }
 
 }
