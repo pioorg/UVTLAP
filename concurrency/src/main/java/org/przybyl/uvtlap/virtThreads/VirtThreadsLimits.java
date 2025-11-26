@@ -24,7 +24,7 @@ import java.time.Instant;
 
 public class VirtThreadsLimits {
 
-    private final static Duration EMULATE_WORK_FOR = Duration.ofSeconds(20);
+    private final static Duration EMULATE_WORK_FOR = Duration.ofSeconds(2);
 
     public static void main(String[] args) throws InterruptedException {
         Instant start = Instant.now();

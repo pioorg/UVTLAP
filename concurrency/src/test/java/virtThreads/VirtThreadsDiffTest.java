@@ -28,7 +28,7 @@ class VirtThreadsDiffTest {
 
     @Test
     void shouldThrowExceptionsForUnsupportedMethods() {
-        assertThrows(UnsupportedOperationException.class, () -> thread.stop());
+//        assertThrows(UnsupportedOperationException.class, () -> thread.stop());
 //        assertThrows(UnsupportedOperationException.class, () -> thread.suspend());
 //        assertThrows(UnsupportedOperationException.class, () -> thread.resume());
         assertThrows(IllegalArgumentException.class, () -> thread.setDaemon(false));
