@@ -34,7 +34,7 @@ public class UncertaintyPrincipleOfVirtualThreads {
         System.setProperty("java.util.logging.SimpleFormatter.format",
             "[%1$tF %1$tT %1$tZ] [%4$-7s] %5$s %n");
         // as an experiment, uncomment the following line and see what happens ;-)
-        // logger.setLevel(java.util.logging.Level.FINE);
+         logger.setLevel(java.util.logging.Level.FINE);
         /*
         Handler consoleHandler = new ConsoleHandler();
         consoleHandler.setLevel(java.util.logging.Level.FINE);
@@ -53,7 +53,7 @@ public class UncertaintyPrincipleOfVirtualThreads {
         streamedTasks();
 //        virtuallyThreadedTasks();
 
-        Thread.sleep(Duration.ofSeconds(6));
+        Thread.sleep(Duration.ofSeconds(3));
         logger.info("Tasks: started [%d], finished [%d]".formatted(startedTasks.get(), finishedTasks.get()));
         System.out.println();
     }
@@ -85,17 +85,17 @@ public class UncertaintyPrincipleOfVirtualThreads {
 
     public static void handleTask(int id) {
         startedTasks.incrementAndGet();
-        hardWork(5_000);
+        hardWork(2_000);
 //        report(id, "1");
-//        hardWork(1_000);
+//        hardWork(400);
 //        report(id, "2");
-//        hardWork(1_000);
+//        hardWork(400);
 //        report(id, "3");
-//        hardWork(1_000);
+//        hardWork(400);
 //        report(id, "4");
-//        hardWork(1_000);
+//        hardWork(400);
 //        report(id, "5");
-//        hardWork(1_000);
+//        hardWork(400);
         logger.info(() -> "FINISHED %3d %s".formatted(id, Thread.currentThread()));
         finishedTasks.incrementAndGet();
     }

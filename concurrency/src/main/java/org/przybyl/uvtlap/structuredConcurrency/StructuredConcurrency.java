@@ -30,9 +30,9 @@ public class StructuredConcurrency {
         var start = Instant.now();
         Map<String, Integer> result = Map.of();
         try {
-            result = sequentialScoreBoard();
+//            result = sequentialScoreBoard();
 //            result = futuredScoreBoard();
-//            result = structuredScoreBoard();
+            result = structuredScoreBoard();
 //            result = misusedScoreBoard();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -116,9 +116,9 @@ class NameService {
         sneakySleep(1_000);
 //        StructuredConcurrency.oops();
         return List.of(
-            new UserName(1, "Joe"),
-            new UserName(2, "Susan"),
-            new UserName(2, "Krzysztof")
+            new UserName(1, "Joe Doe"),
+            new UserName(2, "Susan Smith"),
+            new UserName(2, "Krzysztof Brzęczyszczykiewicz")
         );
     }
 }
